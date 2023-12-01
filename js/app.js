@@ -36,6 +36,6 @@ function sendMessage() {
       document.getElementById("company").value = "";
     })
     .catch((error) => {
-      alert("Failed to submit feedback. Please try again later.");
+      alert("Не удалось отправить отзыв. Пожалуйста, повторите попытку позже.");
     });
 }
