@@ -33,8 +33,15 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> -->
+
   </head>
   <body>
+		<a href="tel:+998999002311" rel="nofollow" class="btn-call">
+	  	<div class="btn-call__ico">
+	  		<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+	  	</div>
+	  </a>
 
     <div class="container pt-3">
 			<div class="row justify-content-between">
@@ -100,10 +107,47 @@
 										<h3 class="mb-4">Оставьте заявку</h3>
 										<div id="form-message-warning" class="mb-4"></div> 
 					      		<div id="form-message-success" class="mb-4">
-					            Мы свяжемся с вами!
 
 					      		</div>
-										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<form
+											name="form-callback"
+											onsubmit="event.preventDefault(); sendMessage();"
+										>
+											<div class="form-group">
+												<label for="name">Ваша имя</label>
+												<input
+													id="name"
+													name="fio"
+													type="text"
+													class="form-control required"
+												/>
+											</div>
+											<label for="">Какой товар вы хотите заказать?</label>
+											<div class="form-group">
+												<textarea id="company"
+												name="company"
+												type="text"
+												class="form-control"
+												placeholder="">
+												
+													
+												</textarea>
+											</div>
+											<div class="form-group ">
+												<label for="message">Ваш номер</label>
+												<!-- <label class="phoneLabel" for="phone"></label> -->
+												<input
+													id="phone"
+													name="tel"
+													type="text"
+													class="form-control tel required form-control submit px-3"
+													value="+998"
+												/>
+											</div>
+											<button type="submit" class="btn btn-warning px-3">Отправить</button>
+
+										</form>
+										<!-- <form method="POST" onsubmit="sendMessage();" id="contactForm" name="contactForm" class="contactForm">
 											<div class="row">
 												<div class="col-md-12">
 													<div class="form-group">
@@ -111,22 +155,17 @@
 														<input type="text" class="form-control" name="name" id="name" placeholder="Ваша имя">
 													</div>
 												</div>
-												<!-- <div class="col-md-6"> 
-													<div class="form-group">
-														<label class="label" for="email">Email Address</label>
-														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
-													</div>
-												</div> -->  
+												
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" for="subject">Номер телефона</label>
-														<input type="number" class="form-control" name="subject" id="subject" placeholder="+9989">
+														<input type="number" class="form-control" name="subject" id="phone" placeholder="+9989">
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" for="#">Сообщение</label>
-														<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Сообщение"></textarea>
+														<textarea name="message" class="form-control" id="company" cols="30" rows="4" placeholder="Сообщение"></textarea>
 													</div>
 												</div>
 												<div class="col-md-12">
@@ -136,7 +175,7 @@
 													</div>
 												</div>
 											</div>
-										</form>
+										</form> -->
 									</div>
 								</div>
 								<div class="col-md-5 d-flex align-items-stretch">
@@ -160,8 +199,8 @@
 				        			<span class="fa fa-phone"></span>
 				        		</div>
 				        		<div class="text">
-					            <p><a href="tel:+998999002311">+998 99 900 23 11</a></p>
-											<p><a href="tel:+998993002311">+998 99 300 23 11</a></p>
+					            <p><a href="tel:+998999002311" target="_blank">+998 99 900 23 11</a></p>
+											<p><a href="tel:+998993002311" target="_blank">+998 99 300 23 11</a></p>
 					          </div>
 				          </div>
 								</div>
@@ -171,7 +210,7 @@
 				        			<span class="fa fa-telegram"></span>
 				        		</div>
 				        		<div class="text">
-					            <p><span>Telegram : </span> <a href="https://t.me/Maksim_993002311">Maksim_993002311</a></p>
+					            <p><span>Telegram : </span> <a href="https://t.me/Maksim_993002311" target="_blank">Maksim_993002311</a></p>
 					          </div>
 				          </div>
 								</div>
@@ -235,24 +274,25 @@
 						</div>
 						
 					</div>
-					<div class="col-md-3 py-md-5 py-4 aside-stretch-right pl-lg-5">
+					<!-- <div class="col-md-3 py-md-5 py-4 aside-stretch-right pl-lg-5">
 						<h2 class="footer-heading">Оставьте заявку</h2>
-						<form action="#" class="contact-form">
+						
+						<form onsubmit="event.preventDefault(); sendMessage();" class="contact-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="ВАША ИМЯ">
+                <input type="text" id="name" class="form-control" placeholder="ВАША ИМЯ">
               </div>
               <div class="form-group">
-                <input type="number" class="form-control" placeholder="НОМЕР ТЕЛЕФОНА">
+                <input type="number" id="phone" class="form-control" placeholder="НОМЕР ТЕЛЕФОНА">
               </div>
              
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="СООБЩЕНИЕ"></textarea>
+                <textarea name="" id="company" cols="30" rows="3" class="form-control" placeholder="СООБЩЕНИЕ"></textarea>
               </div>
               <div class="form-group">
-              	<button type="submit" class="form-control submit px-3">Отправить</button>
+              	<input type="submit" class="form-control submit px-3"></input>
               </div>
             </form>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</footer>
@@ -277,6 +317,8 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+	<script src="js/app.js"></script>
+
     
   </body>
 </html>
